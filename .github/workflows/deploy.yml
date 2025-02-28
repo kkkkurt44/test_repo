@@ -43,7 +43,12 @@ jobs:
           cd / && sudo touch sshkey 
           sudo chmod 777 sshkey 
           sudo echo ${{ secrets.SSH_KEY_UNPUB }} > sshkey 
-          ssh -i ./sshkey -o StrictHostKeyChecking=no ${{ secrets.USER }}"@"${{ secrets.IP }}
+
+          sudo echo "bebra" > new123
+          sudo chmod 777 new123
+          cat new123
+          
+          # ssh -i ./sshkey -o StrictHostKeyChecking=no ${{ secrets.USER }}"@"${{ secrets.IP }}
       
       # - name: connect
       #   run: |

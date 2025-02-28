@@ -15,8 +15,8 @@ jobs:
           echo "Procjects: ls- la"
           ls -la
       - name: copy project
-        uses: actions/checkout@v1
-      - name: copy project
+        uses: actions/checkout@v3.1.0
+      - name: LS PROJECT
         run: |
           echo "Procjects: ls- la"
           ls -la
@@ -26,7 +26,7 @@ jobs:
     needs: MY_testing
     steps:
       - name: checkout
-        uses: actions/checkhout@v1
+        uses: actions/checkhout@v3.1.0
       - name: connect
         run: |
           ssh -p ${{ env.PASS }} ${{ env.USER }}@${{ env.HOST }}

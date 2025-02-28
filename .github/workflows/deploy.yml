@@ -31,10 +31,15 @@ jobs:
         run: sudo apt install sshpass
       - name: connect
         run: |
-          sshpass -p "${{ secrets.PASS }}" ssh \
-          -o StrictHostKeyChecking=no \
-          "${{ secrets.USER }}"@"${{ secrets.IP }}" \
-          "ls -la"
+          sshpass -p ${{ secrets.PASS }}" \
+          ${{ secrets.USER }}"@"${{ secrets.IP }} \
+          -o StrictHostKeyChecking=no 
+          ls -la
+        # run: |
+        #   sshpass -p "${{ secrets.PASS }}" ssh \
+        #   -o StrictHostKeyChecking=no \
+        #   "${{ secrets.USER }}"@"${{ secrets.IP }}" \
+        #   "ls -la"
     
   
   

@@ -25,7 +25,7 @@ jobs:
     needs: MY_testing
     steps:
       - name: checkout
-        uses: actions/checkhout@v1
+      - uses: actions/checkhout@v1
       - name: connect
         run: |
           ssh -p ${{ env.PASS }} ${{ env.USER }}@${{ env.HOST }}

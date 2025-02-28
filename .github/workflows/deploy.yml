@@ -31,7 +31,7 @@ jobs:
         run: sudo apt install sshpass
       - name: connect
         run: |
-          sshpass -p ${{ my_secrets.PASS }} ${{ my_secrets.USER }}@${{ my_secrets.HOST }}
+          sshpass -p ${{ secrets.PASS }} ${{ secrets.USER }}@${{ secrets.HOST }}
           pwd
           
     

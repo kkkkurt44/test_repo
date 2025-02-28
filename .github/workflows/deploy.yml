@@ -19,6 +19,16 @@ jobs:
         run: |
           echo "Procjects: ls- la"
           ls -la
+
+  MY_CD:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkhout@v1
+      - name: connect
+        run: |
+          ssh -p ${{ env.PASS } ${{ env.USER }}@${{ env.HOST }}
+          pwd
           
     
   

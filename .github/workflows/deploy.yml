@@ -33,8 +33,7 @@ jobs:
         run: |
           sshpass -p ${{ secrets.PASS }} \
           ${{ secrets.USER }}"@"${{ secrets.IP }} \
-          -o StrictHostKeyChecking=no \
-          "ls -la"
+          -o StrictHostKeyChecking=no
         # run: |
         #   sshpass -p "${{ secrets.PASS }}" ssh \
         #   -o StrictHostKeyChecking=no \

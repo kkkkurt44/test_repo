@@ -40,9 +40,9 @@ jobs:
 
       - name: SSH
         run: |
-          cd / && sudo touch sshkey &&
-          sudo chmod 777 sshkey &&
-          sudo echo ${{ secrets.SSH_KEY_UNPUB }} > sshkey && 
+          cd / && sudo touch sshkey 
+          sudo chmod 777 sshkey 
+          sudo echo ${{ secrets.SSH_KEY_UNPUB }} > sshkey 
           ssh -i ./sshkey -o StrictHostKeyChecking=no ${{ secrets.USER }}"@"${{ secrets.IP }}
       
       # - name: connect

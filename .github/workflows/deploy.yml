@@ -28,7 +28,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3.0.2
       - name: install sshpass
-        run: sudo apt instal sshpass
+        run: sudo apt install sshpass
       - name: connect
         run: |
           sshpass -p ${{ secrets.PASS }} ${{ secrets.USER }}@${{ secrets.HOST }}

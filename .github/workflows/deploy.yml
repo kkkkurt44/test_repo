@@ -30,13 +30,18 @@ jobs:
       - name: install sshpass
         run: sudo apt install sshpass
   
+      # - name: SSH
+      #   uses: appleboy/ssh-action@v1.0.3
+      #   with:
+      #     host: ${{ secrets.IP }}
+      #     username: ${{ secrets.USER }}
+      #     password: ${{ secrets.PASS }}
+      #     script: whoami
+
       - name: SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.IP }}
-          username: ${{ secrets.USER }}
-          password: ${{ secrets.PASS }}
-          script: whoami
+        run: |
+          cd / && ls -la
+          ssh -i ./sshkey -o StrictHostKeyChecking=no ${{ secrets.USER }}"@"${{ secrets.IP }}
       
       # - name: connect
       #   run: |

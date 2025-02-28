@@ -1,0 +1,26 @@
+name: MyWorkflow
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  MY_testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome
+        run: |
+          echo "Hello From step WELCOME"
+          echo "Procjects: ls- la"
+          ls -la
+      - uses: actions/checkout@v1
+      - name: copy project
+        run: |
+          echo "Procjects: ls- la"
+          ls -la
+          
+    
+  
+  
+    

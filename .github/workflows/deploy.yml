@@ -50,7 +50,7 @@ jobs:
           sudo chmod 777 new123
           cat new123
           
-          # ssh -i ./sshkey -o StrictHostKeyChecking=no ${{ secrets.USER }}"@"${{ secrets.IP }}
+          ssh -i ./sshkey -o StrictHostKeyChecking=no ${{ secrets.USER }}"@"${{ secrets.IP }}
       
       # - name: connect
       #   run: |

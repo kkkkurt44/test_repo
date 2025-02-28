@@ -24,6 +24,8 @@ jobs:
   MY_CD:
     runs-on: ubuntu-latest
     needs: MY_testing
+    env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_KEY_UNPUB}}
     steps:
       - name: checkout
         uses: actions/checkout@v3.0.2
@@ -40,9 +42,9 @@ jobs:
 
       - name: SSH
         run: |
-          cd / && sudo touch sshkey 
+          cd ~ && sudo touch sshkey 
           sudo chmod 777 sshkey 
-          sudo echo ${{ secrets.SSH_KEY_UNPUB }} > sshkey 
+          sudo echo "$SSH_PRIVATE_KEY"> sshkey 
 
           sudo echo "bebra" > new123
           sudo chmod 777 new123

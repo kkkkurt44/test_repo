@@ -29,9 +29,17 @@ jobs:
         uses: actions/checkout@v3.0.2
       - name: install sshpass
         run: sudo apt install sshpass
-      - name: connect
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Deploy to server
         run: |
-          sshpass -p ${{ secrets.PASS }} ${{ secrets.USER }}"@"${{ secrets.IP }} -o StrictHostKeyChecking=no
+                    ssh -o StrictHostKeyChecking=no {{ secrets.USER }}@{{ secrets.IP }
+      # - name: connect
+      #   run: |
+      #     sshpass -p ${{ secrets.PASS }} ${{ secrets.USER }}"@"${{ secrets.IP }} -o StrictHostKeyChecking=no
         # run: |
         #   sshpass -p "${{ secrets.PASS }}" ssh \
         #   -o StrictHostKeyChecking=no \

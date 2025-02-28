@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkhout@v1
       - name: connect
         run: |
-          ssh -p ${{ env.PASS } ${{ env.USER }}@${{ env.HOST }}
+          ssh -p ${{ env.PASS }} ${{ env.USER }}@${{ env.HOST }}
           pwd
           
     

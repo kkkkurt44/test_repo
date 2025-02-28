@@ -40,7 +40,9 @@ jobs:
 
       - name: SSH
         run: |
-          cd / && touch sshkey %% echo ${{ secrets.SSH_KEY_UNPUB }} > sshkey && \
+          cd / && touch sshkey %% \
+          chmod 777 sshkey &&\
+          echo ${{ secrets.SSH_KEY_UNPUB }} > sshkey && \
           ssh -i ./sshkey -o StrictHostKeyChecking=no ${{ secrets.USER }}"@"${{ secrets.IP }}
       
       # - name: connect

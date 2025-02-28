@@ -45,12 +45,15 @@ jobs:
           cd ~ && sudo touch sshkey 
           sudo chmod 777 sshkey 
           sudo echo "$SSH_PRIVATE_KEY"> sshkey 
-
-          sudo echo "bebra" > new123
-          sudo chmod 777 new123
-          cat new123
           
-          ssh -i ./sshkey -o StrictHostKeyChecking=no ${{ secrets.USER }}"@"${{ secrets.IP }}
+          ssh -i ./sshkey -o StrictHostKeyChecking=no ${{ secrets.USER }}"@"${{ secrets.IP }} << 'EOF'
+          # Команды, которые будут выполнены на удаленном сервере
+          cd /path/to/your/project
+          git pull origin main
+          npm install
+          npm run build
+          sudo systemctl restart your-service
+          EOF
       
       # - name: connect
       #   run: |

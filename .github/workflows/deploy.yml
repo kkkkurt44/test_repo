@@ -14,7 +14,8 @@ jobs:
           echo "Hello From step WELCOME"
           echo "Procjects: ls- la"
           ls -la
-      - uses: actions/checkout@v1
+      - name: copy project
+        uses: actions/checkout@v1
       - name: copy project
         run: |
           echo "Procjects: ls- la"

@@ -29,14 +29,15 @@ jobs:
         uses: actions/checkout@v3.0.2
       - name: install sshpass
         run: sudo apt install sshpass
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
+      - name: executing remote ssh commands using password
+      - name: SSH
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY }}
-
-      - name: Deploy to server
-        run: |
-                    ssh -o StrictHostKeyChecking=no {{ secrets.USER }}@{{ secrets.IP }
+          host: ${{ secrets.IP }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.PASS }}
+          script: whoami
+      
       # - name: connect
       #   run: |
       #     sshpass -p ${{ secrets.PASS }} ${{ secrets.USER }}"@"${{ secrets.IP }} -o StrictHostKeyChecking=no

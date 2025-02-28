@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v3.0.2
       - name: connect
         run: |
-          ssh -${{ env.PASS }} ${{ env.USER }}@${{ env.HOST }}
+          ssh -${{ secrets.PASS }} ${{ secrets.USER }}@${{ secrets.HOST }}
           pwd
           
     
